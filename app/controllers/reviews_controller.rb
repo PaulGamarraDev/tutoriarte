@@ -24,3 +24,8 @@ class ReviewsController < ApplicationController
   end
 end
 end
+
+
+# despues de hacer le push de la rama entonces se
+# git co master = eso hace que llegue a la rama
+# git pull

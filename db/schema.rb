@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_28_003705) do
 
   create_table "data_students", force: :cascade do |t|
     t.string "grade_coursed"
-    t.bigint "user_i d", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_data_students_on_user_id"

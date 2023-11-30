@@ -1,4 +1,33 @@
-<%= form_with(model: @review, url: reviews_path, method: :post) do |form| %>
-  
-  <%= form.submit 'Enviar Revisión' %>
-<% end %>
+<div class="container mt-5">
+  <h2>Agrege su Comentario</h2>
+
+  <%= form_with(model: @review, url: reviews_path, method: :post) do |form| %>
+    <%= form.fields_for :professor do |professor_form| %>
+      <div class="form-group">
+        <%= professor_form.label :name %>
+        <%= professor_form.text_field :name, class: 'form-control' %>
+      </div>
+    <% end %>
+<br>
+    <h3>Valoración</h3>
+    <%= form.fields_for :rating do |rating_form| %>
+      <div class="form-group">
+        <%= rating_form.label :value %>
+        <%= rating_form.number_field :value, class: 'form-control', in: 1..10 %>
+      </div>
+    <% end %>
+<br>
+    <h3>Comentario</h3>
+    <%= form.fields_for :comment do |comment_form| %>
+      <div class="form-group">
+        <%= comment_form.label :content %>
+        <%= comment_form.text_area :content, class: 'form-control' %>
+      </div>
+    <% end %>
+
+    <%= form.submit 'Guardar Revisión', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<%# <%= form_with(model: @review, url: reviews_path, method: :post) do |form| %>
+  <%# <%= form.submit 'Enviar Revisión' %>

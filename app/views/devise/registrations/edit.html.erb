@@ -11,6 +11,15 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
+      <%= f.input :first_name, required: true, autofocus: true %>
+
+      <%= f.input :last_name, required: true, autofocus: true %>
+
+      <%= f.input :role, as: :radio_buttons, collection: [[0, 'Teacher'], [1, 'Student']], label_method: :second, value_method: :first %>
+      <%# <%= f.input :role, required: true, autofocus: true %>
+
+      <%= f.input :city, required: true, autofocus: true %>
+
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,
@@ -28,6 +37,8 @@
       <%= f.button :submit, "Update" %>
     </div>
   <% end %>
+
+  <%#= raise %>
 
   <h3>Cancel my account</h3>
 

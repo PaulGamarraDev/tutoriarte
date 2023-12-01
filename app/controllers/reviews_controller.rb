@@ -5,7 +5,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @review = Review.new(review_params)
+    @review.user = @user
+    # @review.rating = params[:review][:rating].to_i
     if @review.save
       redirect_to root_path, notice: 'Revisión creada exitosamente.'
     else
@@ -16,7 +19,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:professor_id, professor_attributes: [:name], rating_attributes: [:value], comment_attributes: [:content])
+    params.require(:review).permit(:comments, :rating)
   end
 end
 #   def new

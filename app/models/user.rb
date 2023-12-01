@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  ROLES = [[0, 'Teacher'], [1, 'Student']]
+  has_many :reviews, dependent: :destroy
+
+  ROLES = [[0, 'Profesor'], [1, 'Estudiante']]
 
   enum role: %i[teacher student]
 

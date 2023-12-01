@@ -10,12 +10,14 @@ class SubjectsController < ApplicationController
   end
 
   def create
+    @user = User.find(1)
     @subject = Subject.new(subject_params)
+    # @subject.user = current_user
 
     if @subject.save
-      redirect_to subject_path(@subject)
+      redirect_to subjects_path
     else
-      render :new, status: :unprocesable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +28,7 @@ class SubjectsController < ApplicationController
     if @subject.update(subject_params)
       redirect_to subject_path(@subject)
     else
-      render :edit, status: :unprocesable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 

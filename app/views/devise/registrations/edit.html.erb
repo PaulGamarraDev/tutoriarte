@@ -15,7 +15,8 @@
 
       <%= f.input :last_name, required: true, autofocus: true %>
 
-      <%= f.input :role, as: :radio_buttons, collection: [[0, 'Teacher'], [1, 'Student']], label_method: :second, value_method: :first %>
+      <%#= f.input :role, as: :radio_buttons, collection: [[0, 'Teacher'], [1, 'Student']], label_method: :second, value_method: :first %>
+      <div><%= f.input :role, as: :radio_buttons, collection: User::ROLES, label_method: :second, value_method: :first %></div>
       <%# <%= f.input :role, required: true, autofocus: true %>
 
       <%= f.input :city, required: true, autofocus: true %>
@@ -38,7 +39,7 @@
     </div>
   <% end %>
 
-  <%#= raise %>
+  <%# <%= raise %>
 
   <h3>Cancel my account</h3>
 

@@ -1,2 +1,17 @@
-<h1>Booking#new</h1>
-<p>Find me in app/views/booking/new.html.erb</p>
+<div class="container mt-4">
+  <h1 class="mb-4">Nuevo Booking</h1>
+
+  <%= simple_form_for @booking, url: bookings_path, method: :post, html: { class: 'form' } do |form| %>
+    <%= form.input :date, label: "Fecha", input_html: { class: 'form-control' } %>
+
+    <%= form.input :time_in, label: "Hora de inicio", input_html: { class: 'form-control' } %>
+
+    <%= form.input :time_out, label: "Hora de finalización", input_html: { class: 'form-control' } %>
+
+    <%= form.input :subject_id, label: "Materias ID", input_html: { class: 'form-control' } %>
+
+    <div class="text-center">
+      <%= form.button :submit, "Crear Booking", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

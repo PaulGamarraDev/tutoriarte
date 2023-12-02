@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user_id = current_user.id
     if @booking.save
       flash[:success] = 'Reserva creada exitosamente.'
       redirect_to booking_path(@booking)
@@ -53,3 +54,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:date, :time_in, :time_out, :subject_id)
   end
 end
+

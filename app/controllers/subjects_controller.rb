@@ -6,7 +6,6 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    redirect_to subject_path(@subject)
   end
 
   def new
@@ -14,7 +13,6 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @user = User.find(1)
     @subject = Subject.new(subject_params)
     @subject.user = current_user
 
@@ -44,7 +42,7 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:name, :grade_subject)
+    params.require(:subject).permit(:name, :grade_subject, :description)
   end
 
   def set_subject

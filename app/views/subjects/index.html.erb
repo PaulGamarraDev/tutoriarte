@@ -2,7 +2,7 @@
   <h1 class="m-3">My subjects</h1>
   <ul>
   <% @subjects.each do |subject| %>
-    <li><%= subject.name %></li>
+    <li><%= subject.name %> <%= subject.grade_subject %> <%= link_to "Ver más", subject_path(subject)%></li>
   <% end %>
 </ul>
 </div>
@@ -14,4 +14,4 @@
 <% end %>
 </li>
 
-
+<%= link_to "Crear materia", new_subject_path%></li>

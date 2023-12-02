@@ -16,10 +16,14 @@
       <%= f.input :last_name, required: true, autofocus: true %>
 
       <%#= f.input :role, as: :radio_buttons, collection: [[0, 'Teacher'], [1, 'Student']], label_method: :second, value_method: :first %>
-      <div><%= f.input :role, as: :radio_buttons, collection: User::ROLES, label_method: :second, value_method: :first %></div>
+      <div><%#= f.input :role, as: :radio_buttons, collection: User::ROLES, label_method: :second, value_method: :first %></div>
       <%# <%= f.input :role, required: true, autofocus: true %>
 
       <%= f.input :city, required: true, autofocus: true %>
+
+      <div class="container">
+
+      </div>
 
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
@@ -28,6 +32,7 @@
       <%= f.input :password_confirmation,
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
+
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,

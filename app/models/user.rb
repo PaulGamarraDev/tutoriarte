@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :first_name, :last_name, :role, presence: true
+  validates :first_name, :last_name, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -8,9 +8,9 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
 
-  ROLES = [[0, 'Profesor'], [1, 'Estudiante']]
+  # ROLES = ['Profesor','Estudiante']
 
-  enum role: %i[teacher student]
+  enum role: %i[teacher student] # asocio que pos 0 es teacher (0 en db y teacher muestra rails en terminal)
 
   after_initialize :set_default_role, if: :new_record?
 

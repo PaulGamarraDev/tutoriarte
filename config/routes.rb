@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  # root "subjects#index"
+
+  # Defines the root path route ("/")
+  resources :subjects
   resources :teachers, only: %i[index show]
 
   get 'students/show'
@@ -15,4 +19,5 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:new, :create]
   # get "new", to: "review#new"
+  
 end

@@ -48,4 +48,5 @@ class SubjectsController < ApplicationController
   def set_subject
     @subject = Subject.find(params[:id])
   end
+
 end

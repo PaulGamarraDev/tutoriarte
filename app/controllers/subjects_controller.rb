@@ -1,8 +1,12 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: %i[edit update destroy]
+  before_action :set_subject, only: %i[show edit update destroy]
 
   def index
     @subjects = Subject.all
+  end
+
+  def show
+    redirect_to subject_path(@subject)
   end
 
   def new
@@ -12,7 +16,7 @@ class SubjectsController < ApplicationController
   def create
     @user = User.find(1)
     @subject = Subject.new(subject_params)
-    # @subject.user = current_user
+    @subject.user = current_user
 
     if @subject.save
       redirect_to subjects_path

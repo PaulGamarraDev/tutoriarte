@@ -5,6 +5,13 @@
     <li><%= subject.name %></li>
   <% end %>
 </ul>
-
-
 </div>
+
+<li class="list-group-item">
+<% if @subject && @subject.persisted? %>
+  <%= @subject.content %>
+  <%= link_to "Delete", subject_path(subject), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<% end %>
+</li>
+
+

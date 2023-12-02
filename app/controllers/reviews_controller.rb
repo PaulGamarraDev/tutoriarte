@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:comments, :rating)
   end
 end
-<<<<<<< HEAD
+
 #   def new
 #     @reviews = Review.new
 #     # @user = current_user
@@ -52,11 +52,8 @@ end
 #     params.require(:review).permit(:professor_id, professor_attributes: [:name], rating_attributes: [:value], comment_attributes: [:content])
 #   end
 # end
-=======
-end
 
 
 # despues de hacer le push de la rama entonces se
 # git co master = eso hace que llegue a la rama
 # git pull
->>>>>>> f122c29ecd9423c7b6f93eac6e38252a403e4f60

@@ -1,22 +1,11 @@
-<div class="container mt-5">
+  <div class="container mt-5">
   <h2>Agrege su Comentario</h2>
+<br>
   <%= simple_form_for [@user, @review], url:"/reviews" do |f| %>
-    <%= f.input :rating, label: "valoracion" %>
-    <%= f.input :comments, label: "comentario" %>
+    <%= f.input :user, label:"Profesor:" %>
+    <%= f.input :rating, label: "Valoracion" %>
+    <%= f.input :comments, label: "Agrague su comentario" %>
     <%= f.submit %>
   <% end %>
 
 </div>
-<<<<<<< HEAD
-
-
-<%# <div class="container mt-5">
-  <h2>Agrege su Comentario</h2>
-  <%= simple_form_for [@user, @review], url: "/reviews", html: { class: "form" } do |f| %>
-    <%# <%= f.input :rating, label: "Valoración", input_html: { class: "form-control" } %> %>
-    <%# <%= f.input :comments, label: "Comentario", input_html: { class: "form-control" } %> %>
-    <%# <%= f.submit "Enviar", class: "btn btn-primary" %>
-  <%# <% end %>
-<%# </div> %> %> %> %>
-=======
->>>>>>> f122c29ecd9423c7b6f93eac6e38252a403e4f60

@@ -7,8 +7,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reviews, dependent: :destroy
-<<<<<<< HEAD
-=======
 
   ROLES = [[0, 'Profesor'], [1, 'Estudiante']]
 
@@ -19,5 +17,4 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :student
   end
->>>>>>> ff7260f238a9c48804259a85d99a20f834cb6a21
 end

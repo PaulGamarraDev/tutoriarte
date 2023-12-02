@@ -70,6 +70,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_182147) do
     t.index ["user_id"], name: "index_data_teachers_on_user_id"
   end
 
+  create_table "professors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "value"
+    t.bigint "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_ratings_on_review_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "comments"
     t.integer "rating"
@@ -108,8 +122,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_182147) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "subjects"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "reviews"
   add_foreign_key "data_students", "users"
   add_foreign_key "data_teachers", "users"
+  add_foreign_key "ratings", "reviews"
   add_foreign_key "reviews", "users"
   add_foreign_key "subjects", "users"
 end

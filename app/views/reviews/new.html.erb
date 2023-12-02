@@ -1,8 +1,10 @@
-<div class="container mt-5">
+  <div class="container mt-5">
   <h2>Agrege su Comentario</h2>
+<br>
   <%= simple_form_for [@user, @review], url:"/reviews" do |f| %>
-    <%= f.input :rating, label: "valoracion" %>
-    <%= f.input :comments, label: "comentario" %>
+    <%= f.input :user, label:"Profesor:" %>
+    <%= f.input :rating, label: "Valoracion" %>
+    <%= f.input :comments, label: "Agrague su comentario" %>
     <%= f.submit %>
   <% end %>
 

@@ -25,8 +25,9 @@ Rails.application.routes.draw do
 
 
   resources :reviews, only: [:new, :create]
+  # get 'finish', to "pages#finish"
   # get "new", to: "review#new"
-  
+
 end
 
 

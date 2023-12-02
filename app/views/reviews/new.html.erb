@@ -1,4 +1,11 @@
-<%= form_with(model: @review, url: reviews_path, method: :post) do |form| %>
-  
-  <%= form.submit 'Enviar Revisión' %>
-<% end %>
+  <div class="container mt-5">
+  <h2>Agrege su Comentario</h2>
+<br>
+  <%= simple_form_for [@user, @review], url:"/reviews" do |f| %>
+    <%= f.input :user, label:"Profesor:" %>
+    <%= f.input :rating, label: "Valoracion" %>
+    <%= f.input :comments, label: "Agrague su comentario" %>
+    <%= f.submit %>
+  <% end %>
+
+</div>

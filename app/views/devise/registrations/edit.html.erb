@@ -1,12 +1,11 @@
 <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user.photo.attached? %>
-
+  <h2>Mi perfil <%#= resource_name.to_s.humanize %></h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
+
+      <p>Selecciona la imagen de tu avatar</p>
       <%= f.input :photo, as: :file %>
 
       <%= f.input :email, required: true, autofocus: true %>
@@ -25,10 +24,9 @@
 
       <%= f.input :city, required: true, autofocus: true %>
 
+      <!--
       <div class="container">
-
-      </div>
-
+      <h3>Cambiar de clave </h3>
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,
@@ -36,6 +34,8 @@
       <%= f.input :password_confirmation,
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
+      </div>
+      -->
 
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",

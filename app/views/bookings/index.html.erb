@@ -1,2 +1,24 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/booking/index.html.erb</p>
+<a href="/bookings/new" class="btn btn-primary">Reserva aqui</a>
+
+<h1>Bookings</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>date</th>
+      <th>Time In</th>
+      <th>Time Out</th>
+      <th>Subject ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.date %></td>
+        <td><%= booking.time_in %></td>
+        <td><%= booking.time_out %></td>
+        <td><%= booking.subject_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

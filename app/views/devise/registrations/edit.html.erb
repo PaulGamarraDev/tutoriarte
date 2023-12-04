@@ -1,10 +1,13 @@
 <div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+  <h2>Mi perfil <%#= resource_name.to_s.humanize %></h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
+
+      <p>Selecciona la imagen de tu avatar</p>
+      <%= f.input :photo, as: :file %>
+
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,11 +19,14 @@
       <%= f.input :last_name, required: true, autofocus: true %>
 
       <%#= f.input :role, as: :radio_buttons, collection: [[0, 'Teacher'], [1, 'Student']], label_method: :second, value_method: :first %>
-      <div><%= f.input :role, as: :radio_buttons, collection: User::ROLES, label_method: :second, value_method: :first %></div>
+      <div><%#= f.input :role, as: :radio_buttons, collection: User::ROLES, label_method: :second, value_method: :first %></div>
       <%# <%= f.input :role, required: true, autofocus: true %>
 
       <%= f.input :city, required: true, autofocus: true %>
 
+      <!--
+      <div class="container">
+      <h3>Cambiar de clave </h3>
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
                   required: false,
@@ -28,6 +34,9 @@
       <%= f.input :password_confirmation,
                   required: false,
                   input_html: { autocomplete: "new-password" } %>
+      </div>
+      -->
+
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,

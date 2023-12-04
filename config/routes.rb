@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # get 'teachers/show'
 
 
-  resources :reviews, only: [:new, :create]
+  resources :reviews, only: [:new, :create, :index, :destroy]
   # get 'finish', to "pages#finish"
   # get "new", to: "review#new"
 

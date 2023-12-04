@@ -4,12 +4,13 @@
   <%= simple_form_for [@user, @review], url:"/reviews" do |f| %>
   <div class="mb-3">
     <%= f.input :user, label:"Profesor:", prompt: "Seleccione un profesor", class: "form-select form-control-lg"%>
-  
+
     </div>
     <%# aca se tiene q escribir  collection y el id que se determino a teacher, ya que si lo escribo ahora me arroja error %>
     <div class="mb-3">
       <label for="rating" class="form-label">Valoración:</label>
-      <input type="range" class="form-range" id="rating" name="rating" min="1" max="10">
+       <%= f.range_field :rating, in: 1..10, class: "form-range" %>
+      <%# <input type="range" class="form-range" id="rating" name="rating" min="1" max="10"> %>
       <div class="d-flex justify-content-between">
         <span class="fw-bold">1</span>
         <span class="fw-bold">2</span>

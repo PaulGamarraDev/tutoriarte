@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
  def new
   @review = Review.new
   @user = current_user
@@ -10,10 +12,20 @@ class ReviewsController < ApplicationController
     @review.user = @user
     # @review.rating = params[:review][:rating].to_i
     if @review.save
-      redirect_to root_path, notice: 'Revisión creada exitosamente.'
+       redirect_to reviews_path, notice: 'Revisión creada exitosamente.'
     else
       render :new
     end
+  end
+
+  def index
+    @reviews = Review.all
+  end
+
+  def destroy
+    @review = Review. find(params[:id])
+    @review. destroy
+    redirect_to reviews_path, notice: 'Revisión eliminada exitosamente';
   end
 
   private

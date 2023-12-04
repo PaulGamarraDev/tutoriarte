@@ -1,17 +1,32 @@
-<div class="container mt-4">
-  <h1 class="mb-4">Nuevo Booking</h1>
 
-  <%= simple_form_for @booking, url: bookings_path, method: :post, html: { class: 'form' } do |form| %>
-    <%= form.input :date, label: "Fecha", input_html: { class: 'form-control' } %>
+<%= turbo_frame_tag "modal" do %>
+  <div data-controller="modal">
+    <div data-action="click->modal#closeOnBackdrop" data-modal-target="backdrop" class="modal-backdrop fade show"></div>
+    <div data-modal-target="modal" class="modal fade show d-block" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg rounded-4">
+        <div class="modal-content modal-content-centered rounded-4">
+          <div class="modal-header">
+            <h5>Reserva una clase de prueba</h5>
+            <button type="button" class="btn-close" data-action="click->modal#close" style="color: #ff0000;"></button>
 
-    <%= form.input :time_in, label: "Hora de inicio", input_html: { class: 'form-control' } %>
+          </div>
+          <div class="modal-body">
 
-    <%= form.input :time_out, label: "Hora de finalización", input_html: { class: 'form-control' } %>
+            <%= simple_form_for @booking, url: bookings_path, method: :post, html: { class: 'form' } do |form| %>
+              <%= form.input :date, label: "Fecha", input_html: { class: 'form-control' } %>
+              <%= form.input :time_in, label: "Hora de inicio", input_html: { class: 'form-control' } %>
+              <%= form.input :time_out, label: "Hora de finalización", input_html: { class: 'form-control' } %>
+              <%= form.input :subject_id, label: "Materias", input_html: { class: 'form-control' } %>
 
-    <%= form.input :subject_id, label: "Materias ID", input_html: { class: 'form-control' } %>
+              <div class="text-center">
+                <%= form.button :submit, "Crear reserva", style: "background-color: #558B2F; color: #ffffff; border-radius: 8px;" %>
 
-    <div class="text-center">
-      <%= form.button :submit, "Crear Booking", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+

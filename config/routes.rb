@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   
   devise_for :users
-  resources :bookings
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :bookings
 
   root to: "pages#home"
   get "about", to: "pages#about"

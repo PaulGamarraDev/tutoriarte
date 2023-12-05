@@ -7,7 +7,7 @@
         <p class="card-title">Valoración: <%= review.rating %></p>
         <p class="card-text">Comentario: <%= review.comments %></p>
         <%= form_tag review_path(review), method: :delete, data: { confirm: '¿Estás seguro?' } do %>
-          <%= submit_tag 'Eliminar', class: 'btn btn-danger' %>
+
         <% end %>
       </div>
     </div>
@@ -15,3 +15,5 @@
 </div>
 
 <%= link_to 'Genera un nuevo comentario', new_review_path, class: 'btn btn-primary btn-lg mx-auto' %>
+<%= submit_tag 'Eliminar', class: 'btn btn-danger' %>
+git 

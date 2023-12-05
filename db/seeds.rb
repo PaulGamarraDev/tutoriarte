@@ -8,13 +8,27 @@
 
 require 'faker'
 
-50.times do
-  Subject.create(
-    name: Faker::Educator.course_name,
-    grade_subject: Faker::Educator.degree,
-    description: Faker::Lorem.sentence
-  )
-  faker_subjects << faker_subject
-end
+#SEEDS USERS
+#50.times do
+#  User.create (
+#
+#  )
+#end
 
-@faker_subjects = faker_subjects
+
+#SEEDS SUBJECTS
+#grades = ["1º de secundaria", "2º de secundaria", "3º de secundaria", "1º de preparatoria", "2º de secundaria", "3º de secundaria"]
+#
+#subjects = ["Matemáticas", "Física", "Química", "Programación", "Inglés", "Español", "Historia", "Cálculo", "Orientación vocacional"]
+#
+#50.times do
+#  Subject.create(
+#    name: subjects.sample,
+#    grade_subject: grades.sample,
+#    description: Faker::Lorem.sentence
+#  )
+#  faker_subjects << faker_subject
+#end
+#
+#@faker_subjects = faker_subjects
+#>>>>>>> master

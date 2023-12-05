@@ -9,16 +9,5 @@
     <% end %>
   </ul>
 
-  <% if @subject && @subject.persisted? %>
-    <div class="card mt-3">
-      <div class="card-body">
-        <%= @subject.content %>
-        <%= link_to "Delete", subject_path(@subject), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      </div>
-    </div>
-  <% end %>
-
   <%= link_to "Crear materia", new_subject_path, class: "btn btn-primary mt-3" %>
 </div>
-
-

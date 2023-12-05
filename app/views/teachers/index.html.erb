@@ -7,8 +7,12 @@
     <div class="row">
       <% @user.all.each do |user| %>
         <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <%= image_tag user.photo, class: "card-img-top", alt: "foto de perfil del profesor" %>
+          <div class="card mb-3" style="width: 18rem;">
+            <% if user.photo.attached? %>
+              <%= image_tag user.photo, class: "card-img-top", alt: "foto de perfil del profesor" %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/dgwpse2wf/image/upload/v1701733180/undefined_user_rcbpiz.jpg", class: "card-img-top", alt: "falta foto de perfil del profesor" %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= user.first_name %></h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

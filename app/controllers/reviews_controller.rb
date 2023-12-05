@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-
+  # hola soy un commet
  def new
   @review = Review.new
   @user = current_user

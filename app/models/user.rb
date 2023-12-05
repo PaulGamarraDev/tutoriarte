@@ -11,8 +11,10 @@ class User < ApplicationRecord
 
   # ROLES = ['Profesor','Estudiante']
 
-  enum role: %i[teacher student] # asocio que pos 0 es teacher (0 en db y teacher muestra rails en terminal)
-
+  enum role: { # asocio que pos 0 es teacher (0 en db y teacher muestra rails en terminal)
+    Profesor: 0,
+    Estudiante: 1,
+  }
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role

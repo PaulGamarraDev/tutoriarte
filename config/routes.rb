@@ -3,21 +3,15 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
 
-
   devise_for :users
 
-  # root "subjects#index"
-
-  # Defines the root path route ("/")
-  resources :subjects
   resources :teachers, only: %i[index show]
-
   get 'students/show'
-  # get 'teachers/index'
-  # get 'teachers/show'
 
+  # root "subjects#index"
+  resources :subjects
 
   resources :reviews, only: [:new, :create]
   # get "new", to: "review#new"
-  
+
 end

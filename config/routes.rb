@@ -11,6 +11,5 @@ Rails.application.routes.draw do
 
   resources :subjects
 
-  resources :reviews, only: [:new, :create]
-
+  resources :reviews, only: [:new, :create, :index, :destroy]
 end

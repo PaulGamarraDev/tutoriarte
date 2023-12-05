@@ -1,17 +1,13 @@
-<div class="div continer mt-5">
-  <h1 class="m-3">My subjects</h1>
-  <ul>
-  <% @subjects.each do |subject| %>
-    <li><%= subject.name %></li>
-  <% end %>
-</ul>
+<div class="container mt-5">
+  <h1 class="mb-3">My subjects</h1>
+  <ul class="list-group">
+    <% @subjects.each do |subject| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= subject.name %>
+        <%= link_to "Ver más", subject_path(subject), class: "btn btn-info btn-sm" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Crear materia", new_subject_path, class: "btn btn-primary mt-3" %>
 </div>
-
-<li class="list-group-item">
-<% if @subject && @subject.persisted? %>
-  <%= @subject.content %>
-  <%= link_to "Delete", subject_path(subject), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-<% end %>
-</li>
-
-

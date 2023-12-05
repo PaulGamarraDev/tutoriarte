@@ -1,6 +1,20 @@
-<h2><%= @subject.name %></h2>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title"><%= @subject.name %></h2>
 
-<%# <%= link_to "Delete",
-  subject_path(@subject),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%> 
+      <p class="card-text">
+        <strong>Grado:</strong> <%= @subject.grade_subject %>
+      </p>
+
+      <p class="card-text">
+        <strong>Descripción:</strong> <%= @subject.description %>
+      </p>
+
+      <div>
+        <%= link_to "Edit", edit_subject_path(@subject), class: "btn btn-outline-success mr-2" %>
+        <%= link_to "Delete", subject_path(@subject), class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: "¿Seguro que quieres borrar la materia?" } %>
+      </div>
+    </div>
+  </div>
+</div>

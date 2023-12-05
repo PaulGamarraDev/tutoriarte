@@ -1,0 +1,10 @@
+<div class="container mt-5">
+<h2 class="card-title">Editar materia</h2>
+  <br>
+  <%= simple_form_for(@subject) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :grade_subject, collection: ['1º Secundaria', '2º Secundaria', '3º Secundaria', '1º Preparatoria', '2º Preparatoria', '3º Preparatoria' ], prompt: 'Selecciona una opción' %>
+    <%= f.input :description %>
+    <%= f.submit "Guardar", class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_12_02_185830) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +52,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_185830) do
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_bookings_on_subject_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
   end
 
   create_table "data_students", force: :cascade do |t|

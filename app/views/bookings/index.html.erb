@@ -1,0 +1,29 @@
+<div class="container mt-4 mb-4">
+  <div class="modal-header">
+    <h3>Materias reservadas</h3>
+    <%= link_to t('.Realizar otra reserva'), new_booking_path, class: "btn  mx-2", data: { turbo_frame: "modal", action: "click->modal#connect",  } %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Comienza</th>
+        <th>Termina</th>
+        <th>Materia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.date %></td>
+          <td><%= booking.time_in %></td>
+          <td><%= booking.time_out %></td>
+          <td><%= booking.subject_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+  <%= turbo_frame_tag "modal" %>

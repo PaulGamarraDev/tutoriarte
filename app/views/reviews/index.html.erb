@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h2>Comentarios Creados </h2>
+  <% @reviews.each do |review| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-text">Profesor: <%="#{review.user.first_name}#{review.user.last_name}" %></h5>
+        <p class="card-title">Valoración: <%= review.rating %></p>
+        <p class="card-text">Comentario: <%= review.comments %></p>
+        <%= form_tag review_path(review), method: :delete, data: { confirm: '¿Estás seguro?' } do %>
+
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Genera un nuevo comentario', new_review_path, class: 'btn btn-primary btn-lg mx-auto' %>
+<%= submit_tag 'Eliminar', class: 'btn btn-danger' %>
+git 

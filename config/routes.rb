@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   get "contact", to: "pages#contact"
 
   devise_for :users
-
   resources :teachers, only: %i[index show]
   get 'students/show'
 
-  # root "subjects#index"
+  resources :bookings
+
   resources :subjects
 
   resources :reviews, only: [:new, :create]
-  # get "new", to: "review#new"
 
 end

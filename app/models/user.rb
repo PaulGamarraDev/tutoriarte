@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :teacher
   end
+
+  # card del profesor
+  # has_many :reviews
 end
+# 

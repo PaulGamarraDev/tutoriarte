@@ -1,6 +1,34 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<div class="container">
+  <% if @user.photo.attached? %>
+    <%= image_tag @user.photo, width: 150, height: 150, alt: "foto de perfil del profesor" %>
+  <% else %>
+    <%= image_tag "https://res.cloudinary.com/dgwpse2wf/image/upload/v1701733180/undefined_user_rcbpiz.jpg", width: 150, height: 150, alt: "falta foto de perfil del profesor" %>
+  <% end %>
+  <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+  <p> Ciudad: <%= @user.city %></p>
+  <p>Añadir un acerca de mí</p>
 
-<%= turbo_frame_tag "modal" %>
-<%= link_to t('.Resevar'), new_booking_path, class: "btn btn-primary mx-2", data: { turbo_frame: "modal", action: "click->modal#connect" } %>
+</div>
 
+<div class="container">
+  <%= turbo_frame_tag "modal" %>
+  <%= link_to t('.Resevar'), new_booking_path, class: "btn btn-primary mx-2", data: { turbo_frame: "modal", action: "click->modal#connect" } %>
+  <%= link_to "Calificar", new_review_path, class: "btn btn-primary mx-2" %>
+</div>
+
+<%# Subjects %>
+<div class="container">
+<div class="container mt-5">
+  <h1 class="mb-3">My subjects</h1>
+  <ul class="list-group">
+    <% @subjects.each do |subject| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= subject.name %>
+        <%= link_to "Ver más", subject_path(subject), class: "btn btn-info btn-sm" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Crear materia", new_subject_path, class: "btn btn-primary mt-3" %>
+</div>
+</div>

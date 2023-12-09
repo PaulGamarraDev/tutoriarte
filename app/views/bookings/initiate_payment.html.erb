@@ -30,7 +30,8 @@
     <!-- Agregar más campos según sea necesario (por ejemplo, fecha de vencimiento, código de seguridad, etc.) -->
 
     <div class="actions">
-      <%= form.submit 'Pagar' %>
+      <%# <%= form.submit 'Pagar'  %>
+      <%= link_to "Paga", bookings_path, class: "btn btn-primary" %>
     </div>
   <% end %>
 <% else %>

@@ -19,6 +19,18 @@ export default class extends Controller {
         Turbo.visit(event.detail.fetchResponse.response.url);
       }
     });
+
+    // Escucha el evento para abrir el modal desde otro índice
+    document.addEventListener("openModalFromOtherIndex", () => {
+      this.openModal();
+    });
+  }
+
+  openModal() {
+    // Abre el modal desde otro índice
+    this.modalTarget.classList.remove('fade');
+    this.modalTarget.classList.add('show');
+    this.modalTarget.classList.add('d-block');
   }
 
   close() {

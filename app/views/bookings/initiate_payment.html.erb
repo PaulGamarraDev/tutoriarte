@@ -1,0 +1,39 @@
+<!-- app/views/bookings/initiate_payment.html.erb -->
+<!-- app/views/bookings/initiate_payment.html.erb -->
+<h1>Seleccione el método de pago</h1>
+
+<% if @booking %>
+  <%= form_with(model: @booking, url: process_payment_booking_path(@booking), method: :post) do |form| %>
+    <% if @booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@booking.errors.count, "error") %> prohibieron que se guardara la reserva:</h2>
+
+        <ul>
+          <% @booking.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- Agregar los campos del formulario de pago -->
+    <div class="field">
+      <%= form.label :nombre_tarjeta, 'Nombre en la tarjeta' %>
+      <%= form.text_field :nombre_tarjeta %>
+    </div>
+
+    <div class="field">
+      <%= form.label :numero_tarjeta, 'Número de tarjeta' %>
+      <%= form.text_field :numero_tarjeta %>
+    </div>
+
+    <!-- Agregar más campos según sea necesario (por ejemplo, fecha de vencimiento, código de seguridad, etc.) -->
+
+    <div class="actions">
+      <%= form.submit 'Pagar' %>
+    </div>
+  <% end %>
+<% else %>
+  <!-- Manejar el caso en el que @booking es nil, por ejemplo, mostrar un mensaje de error -->
+  <p>Error: No se pudo obtener la información de la reserva.</p>
+<% end %>

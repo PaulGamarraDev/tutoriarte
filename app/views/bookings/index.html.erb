@@ -1,29 +1,38 @@
-<div class="container mt-4 mb-4">
-  <div class="modal-header">
-    <h3>Materias reservadas</h3>
-    <%= link_to t('.Realizar otra reserva'), new_booking_path, class: "btn  mx-2", data: { turbo_frame: "modal", action: "click->modal#connect",  } %>
-  </div>
+<h1>Listado de Reservas</h1>
 
-  <table class="table">
-    <thead>
+<table>
+  <!-- Table header -->
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Fecha</th>
+      <th>Hora de inicio</th>
+      <th>Hora de finalización</th>
+      <th>Materia</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @bookings.each do |booking| %>
       <tr>
-        <th>Fecha</th>
-        <th>Comienza</th>
-        <th>Termina</th>
-        <th>Materia</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @bookings.each do |booking| %>
-        <tr>
-          <td><%= booking.date %></td>
-          <td><%= booking.time_in %></td>
-          <td><%= booking.time_out %></td>
-          <td><%= booking.subject_id %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+        <td><%= booking.id %></td>
+        <td><%= booking.date %></td>
+        <td><%= booking.time_in %></td>
+        <td><%= booking.time_out %></td>
+        <td><%= booking.subject.name %></td>
 
-  <%= turbo_frame_tag "modal" %>
+        <td>
+          <%= link_to 'Editar', edit_booking_path(booking), class: 'btn btn-warning' %>
+          <%= link_to 'Eliminar', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Volver a la lista de reservas', bookings_path %>
+
+
+</div>

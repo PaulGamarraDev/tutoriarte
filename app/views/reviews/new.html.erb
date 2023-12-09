@@ -1,10 +1,11 @@
   <div class="container mt-5">
   <h2 class="mb-4">Agrege su Comentario</h2>
 <br>
-  <%= simple_form_for [@user, @review], url:"/reviews" do |f| %>
-  <div class="mb-3">
-    <%= f.input :user, label:"Profesor:", prompt: "Seleccione un profesor", class: "form-select form-control-lg"%>
-
+  <%= simple_form_for [@user, @review] do |f| %>
+  <%= hidden_field_tag :calificated_user, params[:teacher_id] %>
+    <div class="mb-3">
+    <%#= f.input :user, label:"Profesor:", prompt: "Seleccione un profesor", class: "form-select form-control-lg"%>
+    <%#= raise %>
     </div>
     <%# aca se tiene q escribir  collection y el id que se determino a teacher, ya que si lo escribo ahora me arroja error %>
     <div class="mb-3">
@@ -26,12 +27,12 @@
     </div>
     <%# <%= f.input :rating, label: "Valoracion", as: :range, in: 1..10 %>
     <div class="mb-3">
-    <%= f.input :comments, label: "Agrague su comentario", as: :text, input_html: { rows: 4, class: "form-control" } %>
+      <%= f.input :comments, label: "Agrague su comentario", as: :text, input_html: { rows: 4, class: "form-control" } %>
     </div>
-     <div class="mb-3">
-    <%= f.submit"Enviar", class: "btn btn-primary btn-lg" %>
+    <div class="mb-3">
+      <%= f.submit "Enviar", class: "btn btn-primary btn-lg" %>
     <br>
-    <%= link_to "Ir a Booking", bookings_path, class: "btn btn-secondary btn-lg" %>
+      <%#= link_to "Ir a Booking", bookings_path, class: "btn btn-secondary btn-lg" %>
   <% end %>
 
 </div>

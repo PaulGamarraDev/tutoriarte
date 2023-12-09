@@ -6,12 +6,12 @@
   <% end %>
   <h3><%= @user.first_name %> <%= @user.last_name %></h3>
   <p> Ciudad: <%= @user.city %></p>
-  <p>Añadir un acerca de mí</p>
+
 </div>
 
 <div class="container">
   <%= link_to t('.Resevar'), new_booking_path, class: "btn btn-primary mx-2" %>
-  <%= link_to "Calificar", new_review_path, class: "btn btn-primary mx-2" %>
+  <%= link_to "Calificar", new_teacher_review_path(@user), class: "btn btn-primary mx-2" %>
 </div>
 
 <%# Subjects %>

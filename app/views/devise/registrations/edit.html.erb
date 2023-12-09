@@ -8,6 +8,8 @@
       <p>Selecciona la imagen de tu avatar</p>
       <%= f.input :photo, as: :file %>
 
+      <%= link_to "Agregar Materia", subjects_path, class: "btn btn-primary mx-2" %>
+
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

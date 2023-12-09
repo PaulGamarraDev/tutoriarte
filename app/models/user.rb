@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # validates :first_name, :last_name, presence: true
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,10 +18,10 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
-    self.role ||= :teacher
+    self.role ||= :Profesor
   end
 
   # card del profesor
   # has_many :reviews
 end
-# 
+#

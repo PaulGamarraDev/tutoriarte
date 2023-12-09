@@ -1,7 +1,6 @@
 class TeachersController < ApplicationController
   def index
     @users = User.all
-    @subjects = Subject.all
   end
 
   def show

@@ -9,11 +9,15 @@
 require 'faker'
 
 #SEEDS USERS
-#50.times do
-#  User.create (
-#
-#  )
-#end
+CITIES = ["Ciudad de México", "Santiago", "Buenos Aires"]
+50.times do
+  User.create(
+    first_name: faker.person.firstName(),
+    last_name: faker.person.lastName(),
+    city: CITIES.sample
+
+  )
+end
 
 
 #SEEDS SUBJECTS

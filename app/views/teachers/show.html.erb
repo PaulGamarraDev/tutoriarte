@@ -18,34 +18,30 @@
 
 <%# Subjects %>
 <div class="container">
-<div class="container mt-5">
-  <h1 class="mb-3">Materias del Profesor</h1>
-  <ul class="list-group">
-    <% @subjects.each do |subject| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <%= subject.name %>
-        <%= link_to "Ver más", subject_path(subject), class: "btn btn-info btn-sm" %>
-      </li>
-    <% end %>
-  </ul>
-
-  <%= link_to "Crear materia", new_subject_path, class: "btn btn-primary mt-3" %>
-</div>
+  <div class="container mt-5">
+    <h1 class="mb-3">Materias del Profesor</h1>
+    <ul class="list-group">
+      <% @subjects.each do |subject| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= subject.name %>
+          <%= link_to "Ver más", subject_path(subject), class: "btn btn-info btn-sm" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <%# Subjects %>
 <div class="container">
-<div class="container mt-5">
-  <h1 class="mb-3">Calificaciones de sus Estudiantes</h1>
-  <ul class="list-group">
-    <% @reviews.each do |review| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <p class="card-text"><%= review.comments %></p>
-        <p class="card-title">Rating: <%= review.rating %></p>
-      </li>
-    <% end %>
-  </ul>
-
-  <%= link_to "Crear materia", new_subject_path, class: "btn btn-primary mt-3" %>
-</div>
+  <div class="container mt-5">
+    <h1 class="mb-3">Calificaciones de sus Estudiantes</h1>
+    <ul class="list-group">
+      <% @reviews.each do |review| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <p class="card-text"><%= review.comments %></p>
+          <p class="card-title">Rating: <%= review.rating %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def new
     # cargar datos adicionales para el formulario
     @booking = Booking.new
-    # @subjects = Subject.all
+    @subjects = Subject.all
   end
 
   def create
@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       # @booking.reload
-      redirect_to initiate_payment_booking_path(@booking), notice: 'Reserva creada exitosamente.'
+      redirect_to initiate_payment_booking_path(@booking), notice: 'Realiza tu pago.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,32 +28,25 @@ class BookingsController < ApplicationController
 
 
   def initiate_payment
-    if @booking
-      # redirect_to root_path, alert: 'Esta reserva ya ha sido pagada.' if @booking.paid?
-      # @payment = Payment.new
-
+    @booking = Booking.find(params[:id])
+  
+    if @booking.present?
       if request.post?
-        if @payment.update(payment_params)
-          @booking.update(paid: true)
-          flash[:notice] = '¡Pago exitoso! Reserva completada.'
-          redirect_to root_path
-        else
-          flash.now[:error] = 'Error en la información de pago. Corrige los errores.'
-        end
+        # Realiza aquí la lógica de procesamiento de pago
+        # Si el pago es exitoso, actualiza el estado de la reserva a true
+        @booking.update(status: true)
+  
+        redirect_to bookings_path, notice: "Reserva creada exitosamente"
+      else
+        flash.now[:error] = 'Error en la información de pago. Corrige los errores.'
+        render :initiate_payment
       end
     else
       flash[:error] = 'Error: No se pudo obtener la información de la reserva.'
       redirect_to root_path
     end
   end
-
-  def process_payment
-    if @booking.update(payment_params.merge(status: 'Pago Pendiente'))
-      redirect_to bookings_path, notice: 'Reserva creada y pago iniciado exitosamente.'
-    else
-      render 'initiate_payment', alert: 'Error al procesar el pago.'
-    end
-  end
+  
 
   def edit
     # La acción edit puede utilizar el before_action :set_booking

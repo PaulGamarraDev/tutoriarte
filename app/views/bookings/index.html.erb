@@ -9,7 +9,9 @@
       <th>Hora de inicio</th>
       <th>Hora de finalización</th>
       <th>Materia</th>
+      <th>Status</th>
       <th>Acciones</th>
+
     </tr>
   </thead>
   <tbody>
@@ -21,6 +23,8 @@
         <td><%= booking.time_in %></td>
         <td><%= booking.time_out %></td>
         <td><%= booking.subject.name %></td>
+        <td><%= booking.status %></td>
+        
 
         <td>
           <%= link_to 'Editar', edit_booking_path(booking), class: 'btn btn-warning' %>

@@ -10,13 +10,13 @@
         </div>
         <div class="modal-body">
           <%= simple_form_for @booking, url: bookings_path, method: :post, html: { class: 'form' } do |form| %>
-            <%= form.input :date, label: "Fecha", input_html: { class: 'form-control' } %>
+            <%= form.input :date, label: "Fecha", input_html: { class: 'form-control' }, html5:true %>
             <%= form.input :time_in, label: "Hora de inicio", input_html: { class: 'form-control' } %>
             <%= form.input :time_out, label: "Hora de finalización", input_html: { class: 'form-control' } %>
-            <%= form.input :subject_id, collection: @subjects, label: "Materias", input_html: { class: 'form-control' } %>
+            <%#= form.input :subject_id, collection: @subjects, label: "Materias", input_html: { class: 'form-control' } %>
+            <%= form.association :subject, collection: Subject.all %>
             <%= form.submit %>
             <div class="text-center">
-              <%#= link_to "Crear reserva", initiate_payment_booking_path(@booking), class: 'btn btn-primary', style: "border-radius: 8px;" %>
             </div>
           <% end %>
         </div>
@@ -24,4 +24,5 @@
     </div>
   </div>
 </div>
+<%= console %>
 

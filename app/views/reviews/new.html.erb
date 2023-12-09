@@ -1,35 +1,30 @@
-  <div class="container mt-5">
-  <h2 class="mb-4">Agrege su Comentario</h2>
-<br>
-  <%= simple_form_for [@user, @review], url:"/reviews" do |f| %>
-  <div class="mb-3">
-    <%= f.input :user, label:"Profesor:", prompt: "Seleccione un profesor", class: "form-select form-control-lg"%>
+<div class="container mt-5">
+  <h2 class="mb-4">Agrega tu Comentario</h2>
 
-    </div>
-    <%# aca se tiene q escribir  collection y el id que se determino a teacher, ya que si lo escribo ahora me arroja error %>
+  <%= simple_form_for [@user, @review], url: reviews_path do |f| %>
     <div class="mb-3">
-      <label for="rating" class="form-label">Valoración:</label>
-       <%= f.range_field :rating, in: 1..10, class: "form-range" %>
-      <%# <input type="range" class="form-range" id="rating" name="rating" min="1" max="10"> %>
+      <%= f.label :teacher, "Selecciona un profesor", class: "form-label" %>
+      <%= f.association :teacher, collection: @teachers, prompt: "Seleccione un profesor", class: "form-select form-control-lg" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.range_field :rating, in: 1..10, class: "form-range" %>
+
       <div class="d-flex justify-content-between">
-        <span class="fw-bold">1</span>
-        <span class="fw-bold">2</span>
-        <span class="fw-bold">3</span>
-        <span class="fw-bold">4</span>
-        <span class="fw-bold">5</span>
-        <span class="fw-bold">6</span>
-        <span class="fw-bold">7</span>
-        <span class="fw-bold">8</span>
-        <span class="fw-bold">9</span>
-        <span class="fw-bold">10</span>
+        <% (1..10).each do |value| %>
+          <span class="fw-bold"><%= value %></span>
+        <% end %>
       </div>
     </div>
-    <%# <%= f.input :rating, label: "Valoracion", as: :range, in: 1..10 %>
-    <div class="mb-3">
-    <%= f.input :comments, label: "Agrague su comentario", as: :text, input_html: { rows: 4, class: "form-control" } %>
-    </div>
-     <div class="mb-3">
-    <%= f.submit"Enviar", class: "btn btn-primary btn-lg" %>
-  <% end %>
 
+    <div class="mb-3">
+      <%= f.input :comments, label: "Agrega tu comentario", as: :text, input_html: { rows: 4, class: "form-control" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.submit "Enviar", class: "btn btn-primary btn-lg" %>
+      <br>
+      <%= link_to "Ir a Booking", bookings_path, class: "btn btn-secondary btn-lg" %>
+    </div>
+  <% end %>
 </div>

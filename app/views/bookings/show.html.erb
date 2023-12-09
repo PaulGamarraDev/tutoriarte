@@ -1,2 +1,27 @@
-<h1>Booking#show</h1>
-<p>Find me in app/views/booking/show.html.erb</p>
+<div class="container mt-4">
+  <h1>Detalles de la Reserva</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">Fecha: <%= @booking.date %></p>
+      <p class="card-text">Hora de inicio: <%= @booking.time_in %></p>
+      <p class="card-text">Hora de finalización: <%= @booking.time_out %></p>
+      <p class="card-text">Materia: <%= @booking.subject.name %></p>
+
+      <% if @booking.professor.present? %>
+        <p class="card-text">Profesor: <%= @booking.professor.name %></p>
+        <img src="<%= @booking.professor.photo_url %>" alt="Foto del Profesor" class="img-fluid" style="max-width: 100px; max-height: 100px;">
+        <p class="card-text">Descripción del Profesor: <%= @booking.professor.description %></p>
+      <% else %>
+        <p class="card-text">Profesor no disponible</p>
+      <% end %>
+
+      <!-- Edit, Delete, and Back buttons -->
+      <div class="btn-group" role="group">
+        <%= link_to 'Editar', edit_booking_path(@booking), class: 'btn btn-warning' %>
+        <%= link_to 'Eliminar', booking_path(@booking), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger', remote: true %>
+        <%= link_to 'Volver a la lista de reservas', bookings_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>

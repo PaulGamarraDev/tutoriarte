@@ -1,7 +1,6 @@
 
 <div class="container">
-  <h1>Teachers#index</h1>
-  <p>Find me in app/views/teachers/index.html.erb</p>
+  <h1 class="mt-5 mb-5">Conoce a Nuestros Profesores</h1>
 
   <div class="card-group">
     <div class="row">
@@ -14,8 +13,7 @@
               <%= image_tag "https://res.cloudinary.com/dgwpse2wf/image/upload/v1701733180/undefined_user_rcbpiz.jpg", class: "card-img-top", alt: "falta foto de perfil del profesor" %>
             <% end %>
             <div class="card-body">
-              <h5 class="card-title"><%= user.first_name %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title text-center"><%= user.first_name %> <%= user.last_name %></h5>
               <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
               <%= link_to t('.Reserva tu clase'), new_booking_path, class: "btn btn-primary mx-2",  %>
               <%= link_to "Perfil del Profe", teacher_path(id: user.id), class: "btn btn-primary mx-2" %>

@@ -11,28 +11,29 @@ require 'faker'
 #SEEDS USERS
 CITIES = ["Ciudad de México", "Santiago", "Buenos Aires"]
 50.times do
-  User.create(
-    first_name: faker.person.firstName(),
-    last_name: faker.person.lastName(),
-    city: CITIES.sample
-
+  user_name = Faker::Name.first_name
+  User.create!(
+    photo: faker.internet.avatar(),
+    first_name: user_name,
+    last_name: Faker::Name.last_name,
+    city: CITIES.sample,
+    role: 0,
+    email: "$#{user_name}@correo.com",
+    password: "123456"
   )
 end
 
 
 #SEEDS SUBJECTS
-#grades = ["1º de secundaria", "2º de secundaria", "3º de secundaria", "1º de preparatoria", "2º de secundaria", "3º de secundaria"]
-#
-#subjects = ["Matemáticas", "Física", "Química", "Programación", "Inglés", "Español", "Historia", "Cálculo", "Orientación vocacional"]
-#
-#50.times do
-#  Subject.create(
-#    name: subjects.sample,
-#    grade_subject: grades.sample,
-#    description: Faker::Lorem.sentence
-#  )
-#  faker_subjects << faker_subject
-#end
-#
-#@faker_subjects = faker_subjects
-#>>>>>>> master
+# grades = ["1º de secundaria", "2º de secundaria", "3º de secundaria", "1º de preparatoria", "2º de preparatoria", "3º de preparatoria"]
+
+# subjects = ["Matemáticas", "Física", "Química", "Programación", "Inglés", "Español", "Historia", "Cálculo", "Orientación vocacional"]
+
+# 50.times do
+#   Subject.create!(
+#     name: subjects.sample,
+#     grade_subject: grades.sample,
+#     description: Faker::Lorem.sentence,
+#     user: User.all.sample
+#   )
+# end

@@ -1,42 +1,29 @@
 
 <div class="container">
-<<<<<<< HEAD
   <h1 class="text-center mt-5 mb-5">Conoce a Nuestros Profesores</h1>
-=======
-  <h1 class="mt-5 mb-5">Conoce a Nuestros Profesores</h1>
->>>>>>> 5f7f54eac573cd1641fee977926a49c2711f1805
 
   <div class="card-group">
     <div class="row">
       <% @users.all.each do |user| %>
-        <div class="col-3">
-          <div class="card mb-3" style="width: 18rem;">
-            <% if user.photo.attached? %>
-              <%= image_tag user.photo, class: "card-img-top", alt: "foto de perfil del profesor" %>
-            <% else %>
-              <%= image_tag "https://res.cloudinary.com/dgwpse2wf/image/upload/v1701733180/undefined_user_rcbpiz.jpg", class: "card-img-top", alt: "falta foto de perfil del profesor" %>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title text-center"><%= user.first_name %> <%= user.last_name %></h5>
-<<<<<<< HEAD
-              <% @subjects.each do |subject| %>
-                <p><%= subject.name %></p>
-              <% end  %>
-              <%# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> %>
-              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-              <div class="container row">
-                <%= link_to "Perfil del Profe", teacher_path(id: user.id), class: "btn btn-primary mx-2 mb-1" %>
-                <%= link_to t('.Reserva'), new_booking_path, class: "btn btn-primary mx-2" %>
+        <% if user.role == "Profesor" %>
+          <div class="col-3">
+            <div class="card mb-3" style="width: 18rem;">
+              <% if user.photo.attached? %>
+                <%= image_tag user.photo, class: "card-img-top", alt: "foto de perfil del profesor" %>
+              <% else %>
+                <%= image_tag "https://res.cloudinary.com/dgwpse2wf/image/upload/v1701733180/undefined_user_rcbpiz.jpg", class: "card-img-top", alt: "falta foto de perfil del profesor" %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title text-center"><%= user.first_name %> <%= user.last_name %></h5>
+                <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+                <div class="container row">
+                  <%= link_to "Perfil del Profe", teacher_path(id: user.id), class: "btn btn-primary mx-2 mb-1" %>
+                  <%= link_to t('.Reserva'), new_booking_path, class: "btn btn-primary mx-2" %>
+                </div>
               </div>
-=======
-              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-
-              <%= link_to t('.Reserva'), new_booking_path, class: "btn btn-primary mx-2", data: { turbo_frame: "modal", action: "click->modal#connect", } %>
-              <%= link_to "Perfil del Profe", teacher_path(id: user.id), class: "btn btn-primary mx-2" %>
->>>>>>> 5f7f54eac573cd1641fee977926a49c2711f1805
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

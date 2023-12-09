@@ -1,7 +1,6 @@
 class TeachersController < ApplicationController
   def index
     @users = User.all
-    @subjects = Subject.where(user_id: user.id)
   end
 
   def show

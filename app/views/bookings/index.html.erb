@@ -15,18 +15,20 @@
   <tbody>
 
     <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.id %></td>
-        <td><%= booking.date %></td>
-        <td><%= booking.time_in %></td>
-        <td><%= booking.time_out %></td>
-        <td><%= booking.subject.name %></td>
+      <% if booking.user_id == current_user.id %>
+        <tr>
+          <td><%= booking.id %></td>
+          <td><%= booking.date %></td>
+          <td><%= booking.time_in %></td>
+          <td><%= booking.time_out %></td>
+          <td><%= booking.subject.name %></td>
 
-        <td>
-          <%= link_to 'Editar', edit_booking_path(booking), class: 'btn btn-warning' %>
-          <%= link_to 'Eliminar', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-        </td>
-      </tr>
+          <td>
+            <%= link_to 'Editar', edit_booking_path(booking), class: 'btn btn-warning' %>
+            <%= link_to 'Eliminar', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

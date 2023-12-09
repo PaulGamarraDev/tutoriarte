@@ -78,20 +78,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_02_185830) do
     t.index ["user_id"], name: "index_data_teachers_on_user_id"
   end
 
-  create_table "professors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "ratings", force: :cascade do |t|
-    t.integer "value"
-    t.bigint "review_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["review_id"], name: "index_ratings_on_review_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.text "comments"
     t.integer "rating"

@@ -1,0 +1,16 @@
+<div class= "container">
+<h1>Dashboard</h1>
+<h2>Reviews</h2>
+<ul>
+  <% @reviews.each do |review| %>
+    <li><%= review.comments %></li>
+  <% end %>
+</ul>
+
+<h2>Bookings</h2>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.date %></li>
+  <% end %>
+</ul>
+</div>

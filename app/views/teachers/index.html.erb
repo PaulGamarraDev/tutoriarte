@@ -17,7 +17,7 @@
               <h5 class="card-title"><%= user.first_name %></h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-              <%= link_to t('.Reserva'), new_booking_path, class: "btn btn-primary mx-2", data: { turbo_frame: "modal", action: "click->modal#connect", } %>
+              <%= link_to t('.Reserva tu clase'), new_booking_path, class: "btn btn-primary mx-2",  %>
               <%= link_to "Perfil del Profe", teacher_path(id: user.id), class: "btn btn-primary mx-2" %>
             </div>
           </div>
@@ -27,9 +27,15 @@
   </div>
 </div>
 
+
+
+
+<%= link_to 'Reservar Clase', '#', class: 'btn btn-primary', data: { toggle: 'modal', target: '#myModal' } %>
+
   <%# <%= turbo_frame_tag "modal" %>
 
 
+<!-- En tu vista index.html.erb o donde sea que quieras que aparezca el modal -->
 
 <!-- app/views/articles/index.html.erb -->
 <%#= cl_image_tag("https://res.cloudinary.com/dgwpse2wf/image/upload/v1701540886/naig8e2momn4pyxt8hnh.jpg",
